@@ -1,10 +1,10 @@
 <div class="container-fluid">
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h4 class="page-title">Laporan Dana Masuk</h4> </div>
+            <h4 class="page-title">Rincian Dana Masuk</h4> </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
             <ol class="breadcrumb">
-                <li><a href="#">Laporan Dana Masuk</a></li>
+                <li><a href="#">Rincian Dana Masuk</a></li>
             </ol>
         </div>
         <!-- /.col-lg-12 -->
@@ -34,8 +34,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Jumlah</th>                     
+                                <th>Klien: Layanan</th>
+                                <th>Harga</th>                     
                             </tr>
                         </thead>                        
                     </table>
@@ -49,7 +49,7 @@
 <script>
 	$('.tgl').datepicker();
 	function back() {
-		$('#kontenku').load('page/kas_masuk.php');
+		$('#kontenku').load('page/data_klien.php');
 	}
 	function lihat_laporan() {
         

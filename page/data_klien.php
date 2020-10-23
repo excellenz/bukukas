@@ -1,6 +1,6 @@
 <?php 
 require_once '../koneksi/conn.php'; 
-$query = $conn->query("SELECT * FROM data_klien");
+$query = $conn->query("SELECT * FROM data_klien ORDER BY tanggal DESC");
 ?>
 <div class="container-fluid">
     <div class="row bg-title">
@@ -8,7 +8,7 @@ $query = $conn->query("SELECT * FROM data_klien");
             <h4 class="page-title">Data Klien</h4> </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
             <ol class="breadcrumb">
-                <li><a href="#">Data Klien Excellenz</a></li>
+                <li><a href="#">Data Klien</a></li>
             </ol>
         </div>
         <!-- /.col-lg-12 -->
@@ -18,10 +18,11 @@ $query = $conn->query("SELECT * FROM data_klien");
             <div class="white-box">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="box-title">Data Klien Excellenz</h3>
+                        <h3 class="box-title">Data Klien</h3>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-success btn-sm pull-right" onclick="tambah()">Tambah</button>
+                        <button class="btn btn-success btn-sm pull-right" onclick="tambah()">Tambah</button>                    
+                        <button class="btn btn-warning btn-sm pull-right" onclick="laporan()" style="margin-right: 5px;">Laporan Data Klien</button>
                     </div>
                 </div>
                 
@@ -31,10 +32,10 @@ $query = $conn->query("SELECT * FROM data_klien");
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Klien</th>
-                                <th>Layanan</th>
+                                <th>Klien: Layanan</th>
                                 <th>Harga</th>
-                                <th>Jatuh Tempo</th>                                
+                                <th>Jatuh Tempo</th>
+                                <th>Opt</th>                                
                             </tr>
                         </thead>
                         <tbody>
@@ -43,22 +44,26 @@ $query = $conn->query("SELECT * FROM data_klien");
                             while ($row=$query->fetch_assoc()) { ?>
                             <tr>
                                 <td><?=$no++; ?></td>
-                                <td><?=$row['klien'] ?></td>
-                                <td><?=$row['layanan'] ?></td>
-                                <td><?=$row['harga'] ?></td>
-                                <td><?=$row['jatuh_tempo'] ?></td>
+                                <td><?=$row['nama'] ?></td>
+                                <td><?= "Rp. ".number_format($row['jumlah']); ?></td>
+                                <td><?=$row['tanggal'] ?></td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm" onclick="edit_kategori('<?=$row['id_kategori'] ?>')"> <i class="fa fa-pencil"></i> </button>
-                                    <button class="btn btn-danger btn-sm" onclick="hapus_kategori('<?=$row['id_kategori'] ?>')"> <i class="fa fa-trash-o"></i> </button>
+                                    <button class="btn btn-warning btn-sm" onclick="edit_data_klien('<?=$row['id'] ?>')"> <i class="fa fa-pencil"></i> </button>
+                                    <button class="btn btn-danger btn-sm" onclick="hapus_data_klien('<?=$row['id'] ?>')"> <i class="fa fa-trash-o"></i> </button>
                                 </td>
                             </tr>
 
                             
                             <?php 
+                            // $total=$total+$row['jumlah'];
                             }
                         ?>
                             
                         </tbody>
+                        <!-- <tr>
+                            <th colspan="2" >Estimasi Total Dana Masuk</th>
+                            <td align="left"><b><?= "Rp. ".number_format($total); ?></b></td>
+                        </tr> -->
                     </table>
                 </div>
             </div>
@@ -77,36 +82,28 @@ $query = $conn->query("SELECT * FROM data_klien");
       <div class="modal-body">
         <form class="form-horizontal form-material" id="form">
             <div class="form-group">
-                <input type="hidden" id="no" name="no"/>
-                <label class="col-md-12">Nama Kategori</label>
+                <label class="col-md-12">Klien: Layanan</label>
                 <div class="col-md-12">
-                    <input type="text" placeholder="Klien" class="form-control form-control-line" name="klien" id="klien"> 
+                     <input type="hidden" id="id" name="id"/> 
+                    <input type="text" name="nama" id="nama" placeholder="Nama Donatur" class="form-control form-control-line">
                     <span class="help-block"></span>
-                </div>                    
+                </div>                   
             </div>
             <div class="form-group">
-                <label class="col-md-12">Layanan</label>
+                <label for="jumlah" class="col-md-12">Harga</label>
                 <div class="col-md-12">
-                    <input type="text" placeholder="Layanan" class="form-control form-control-line" name="layanan" id="layanan"> 
+                    <input type="number" placeholder="Jumlah" class="form-control form-control-line" name="jumlah" id="jumlah"> 
                     <span class="help-block"></span>
-                </div>                    
+                </div>
             </div>
             <div class="form-group">
-                <label class="col-md-12">Harga</label>
+                <label for="jumlah" class="col-md-12">Jatuh Tempo</label>
                 <div class="col-md-12">
-                    <input type="text" placeholder="Harga" class="form-control form-control-line" name="harga" id="harga"> 
+                    <input type="date" placeholder="Tanggal" class="form-control form-control-line" name="tanggal" id="tanggal"> 
                     <span class="help-block"></span>
-                </div>                    
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Jatuh Tempo</label>
-                <div class="col-md-12">
-                    <input type="text" placeholder="Jatuh Tempo" class="form-control form-control-line" name="jatuh_tempo" id="jatuh_tempo"> 
-                    <span class="help-block"></span>
-                </div>                    
+                </div>
             </div>
         </form>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -116,8 +113,10 @@ $query = $conn->query("SELECT * FROM data_klien");
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- endmodal -->
+
 <script>
-    $('#dataku').dataTable();
+$('#dataku').dataTable();
+
 let save_method;
 function tambah() {
     save_method = 'add';
@@ -125,7 +124,7 @@ function tambah() {
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); 
-    $('.modal-title').text('Tambah Data Klian'); 
+    $('.modal-title').text('Tambah Data Klien'); 
 }
 function save(){
     $('#btnSave').text('saving...'); //change button text
@@ -133,9 +132,9 @@ function save(){
     let url;
 
     if(save_method == 'add') {
-        url = "server_side/data_klien/tambah_kategori.php";
+        url = "server_side/data_klien/tambah_kas_masuk.php";
     } else {
-        url = "server_side/data_klien/edit_kategori.php";
+        url = "server_side/data_klien/edit_kas_masuk.php";
     }
 
     // ajax adding data to database
@@ -174,7 +173,7 @@ function save(){
         }
     });
 }
-function edit_kategori(id){
+function edit_data_klien(id){
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
@@ -183,16 +182,18 @@ function edit_kategori(id){
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "server_side/kategori_pengeluaran/get_data_kategori.php?id_kategori="+id,
+        url : "server_side/data_klien/get_data_masuk.php?id="+id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
-            $('#id_kategori').val(data.id_kategori);
-            $('#nama_kategori').val(data.nama_kategori);
+            $('#id').val(data.id);
+            $('#nama').val(data.nama);
+            $('#jumlah').val(data.jumlah);
+            $('#tanggal').val(data.tanggal);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Kategori Pengeluaran '); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Data Klien '); // Set title to Bootstrap modal title
 
 
         },
@@ -203,18 +204,18 @@ function edit_kategori(id){
     });
 }
 
-function hapus_kategori(id)
+function hapus_data_klien(id)
 {
     if(confirm('Kamu Yakin hapus data ini?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "server_side/kategori_pengeluaran/hapus_kategori.php?id_kategori="+id,
+            url : "server_side/data_klien/hapus_kas_masuk.php?id="+id,
             type: "GET",
             dataType: "JSON",
             success: function(data)
             {
-                setTimeout(function() { $('#kontenku').load('page/kategori_pengeluaran.php'); }, 1000);
+                setTimeout(function() { $('#kontenku').load('page/data_klien.php'); }, 1000);
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -224,4 +225,8 @@ function hapus_kategori(id)
 
     }
 }
+function laporan() {
+    $('#kontenku').load('page/laporan_data_klien.php');
+}
+
 </script>
