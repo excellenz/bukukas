@@ -130,33 +130,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="header">Menu Utama</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="home.php"><i class='fa fa-home'></i> <span> Dashboard</span></a></li>
-			<li><a href="#"><i class='fa fa-institution'></i> <span> Pemasukan</span><i class="fa fa-angle-left pull-right"></i></a> 
+      <li><a href="dana_masuk.php"><i class='fa fa-institution'></i> <span> Pemasukan</span><i class="fa fa-angle-left pull-right"></i></a> 
                 <ul class="treeview-menu">
                 <li class="active"><a href="dana_masuk.php"><i class="fa fa-mail-forward"></i> Dana Masuk</a></li>
                 <li><a href="tambah_masuk.php"><i class="fa fa-plus-square-o"></i> Tambah Pemasukan</a></li>
                 </ul>
              </li>       
-            <li> <a href="#"><i class='fa fa-cart-arrow-down'></i> <span> Pengeluaran</span><i class="fa fa-angle-left pull-right"></i></a>
+            <li> <a href="dana_keluar.php"><i class='fa fa-cart-arrow-down'></i> <span> Pengeluaran</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                 <li class="active"><a href="dana_keluar.php"><i class="fa fa-mail-reply"></i> Dana Keluar</a></li>
                 <li><a href="tambah_keluar.php"><i class="fa fa-plus-square-o"></i> Tambah Pengeluaran</a></li>
                 </ul>
               </li>    
-			 <li><a href="rekap.php"><i class='fa fa-pie-chart'></i> <span> Rekapitulasi Dana</span></a></li>
-      <li><a href="?page=klien"><i class='fa fa-institution'></i> <span> Data klien | Pemasukan</span><i class="fa fa-angle-left pull-right"></i></a> 
+      <li><a href="rekap.php"><i class='fa fa-pie-chart'></i> <span> Rekapitulasi Dana</span></a></li>
+      <li><a href="dana_klien.php"><i class='fa fa-institution'></i> <span> Data klien | Pemasukan</span><i class="fa fa-angle-left pull-right"></i></a> 
                 <ul class="treeview-menu">
                 <li class="active"><a href="dana_klien.php"><i class="fa fa-mail-forward"></i> Data Klien</a></li>
                 <li><a href="tambah_klien.php"><i class="fa fa-plus-square-o"></i> Tambah Klien</a></li>
                 </ul>
              </li>       
-            <li> <a href="#"><i class='fa fa-cart-arrow-down'></i> <span> Rencana Pengeluaran</span><i class="fa fa-angle-left pull-right"></i></a>
+            <li> <a href="klien_keluar.php"><i class='fa fa-cart-arrow-down'></i> <span> Rencana Pengeluaran</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                 <li class="active"><a href="klien_keluar.php"><i class="fa fa-mail-reply"></i> Rencana Dana Keluar</a></li>
                 <li><a href="tambah_klien_keluar.php"><i class="fa fa-plus-square-o"></i> Tambah Dana Pengeluaran</a></li>
                 </ul>
               </li>    
       <li><a href="estimasi.php"><i class='fa fa-pie-chart'></i> <span> Estimasi Pendapatan</span></a></li>
-			<li> <a href="logout.php"><i class='fa fa-sign-out'></i> <span> Log Out</span></a></li>
+      <li> <a href="logout.php"><i class='fa fa-sign-out'></i> <span> Log Out</span></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
