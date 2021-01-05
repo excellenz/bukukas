@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Excellenz Dana |  Tambah Pengeluaran</title>
+    <title>EXCELLENZ DANA |  Tambah Pengeluaran</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="../adminlte/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -66,7 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="home.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>DANA</b></span>
           <!-- logo for regular state and mobile devices -->
@@ -88,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="../foto/pass.png" class="user-image" alt="User Image"/>
+                  <img src=../foto/pass.png" class="user-image" alt="User Image"/>
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs"><?php echo ucwords($_SESSION['username']); ?></span>
                 </a>
@@ -98,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img src="../foto/pass.png" class="img-circle" alt="User Image" />
                     <p>
                       <?php echo ucwords($_SESSION['username']); ?>
-                      <small>Administrator</small>
+                      <small>Bendahara</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -142,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href="tambah_keluar.php"><i class="fa fa-plus-square-o"></i> Tambah Pengeluaran</a></li>
                 </ul>
               </li>    
-      <li><a href="rekap.php"><i class='fa fa-pie-chart'></i> <span> Rekapitulasi Dana</span></a></li>
+       <li><a href="rekap.php"><i class='fa fa-pie-chart'></i> <span> Rekapitulasi Dana</span></a></li>
       <li><a href="dana_klien.php"><i class='fa fa-institution'></i> <span> Data klien | Pemasukan</span><i class="fa fa-angle-left pull-right"></i></a> 
                 <ul class="treeview-menu">
                 <li class="active"><a href="dana_klien.php"><i class="fa fa-mail-forward"></i> Data Klien</a></li>
@@ -155,7 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href="tambah_klien_keluar.php"><i class="fa fa-plus-square-o"></i> Tambah Dana Pengeluaran</a></li>
                 </ul>
               </li>    
-      <li><a href="estimasi.php"><i class='fa fa-pie-chart'></i> <span> Estimasi Pendapatan</span></a></li>
+         <li><a href="estimasi.php"><i class='fa fa-pie-chart'></i> <span> Estimasi Pendapatan</span></a></li>
       <li> <a href="logout.php"><i class='fa fa-sign-out'></i> <span> Log Out</span></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>

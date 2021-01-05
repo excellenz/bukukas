@@ -11,7 +11,7 @@ if(isset($_SESSION['username'])) {
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Excellenz Dana | Log in</title>
+    <title>DANA EXCELLENZ | Log in</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="./adminlte/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@ if(isset($_SESSION['username'])) {
     <div class="login-box">
       <div class="login-box-body">
        <div>
-        <h1 style="text-align: center;"><b>Excellenz Dana</b></h1>
+        <h1 style="text-align: center;"><b>KAS KITA</b></h1>
         </div><hr/>
-        <p class="login-box-msg">Log In Administator</p>
+        <p class="login-box-msg">Log In Administrator</p>
         <form action="ceklogin.php" method="post">
           <div class="form-group has-feedback">
             <input type="text" name="username" class="form-control" placeholder="Username"/>
